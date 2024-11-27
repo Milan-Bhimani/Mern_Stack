@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon Grid</title>
+  <!-- Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 50px);
+      grid-gap: 15px;
+      padding: 20px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: #555;
+      font-size: 18px;
+    }
+
+    .icon:hover {
+      background-color: #4c9aff;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon-grid">
+    <!-- Row 1 -->
+    <div class="icon"><i class="fas fa-envelope"></i></div>
+    <div class="icon"><i class="fas fa-comment"></i></div>
+    <div class="icon"><i class="fas fa-search"></i></div>
+    <div class="icon"><i class="fas fa-align-left"></i></div>
+    <div class="icon"><i class="fas fa-sun"></i></div>
+    <div class="icon"><i class="fas fa-bookmark"></i></div>
+    <div class="icon"><i class="fas fa-compass"></i></div>
+    <div class="icon"><i class="fas fa-clock"></i></div>
+
+    <!-- Row 2 -->
+    <div class="icon"><i class="fas fa-plus"></i></div>
+    <div class="icon"><i class="fas fa-minus"></i></div>
+    <div class="icon"><i class="fas fa-desktop"></i></div>
+    <div class="icon"><i class="fas fa-camera"></i></div>
+    <div class="icon"><i class="fas fa-arrow-left"></i></div>
+    <div class="icon"><i class="fas fa-arrow-right"></i></div>
+    <div class="icon"><i class="fas fa-mug-hot"></i></div>
+    <div class="icon"><i class="fas fa-battery-full"></i></div>
+
+    <!-- Row 3 -->
+    <div class="icon"><i class="fas fa-music"></i></div>
+    <div class="icon"><i class="fas fa-palette"></i></div>
+    <div class="icon"><i class="fas fa-heart"></i></div>
+    <div class="icon"><i class="fas fa-headphones"></i></div>
+    <div class="icon"><i class="fas fa-ship"></i></div>
+    <div class="icon"><i class="fas fa-microphone"></i></div>
+    <div class="icon"><i class="fas fa-eye"></i></div>
+    <div class="icon"><i class="fas fa-edit"></i></div>
+
+    <!-- Row 4 -->
+    <div class="icon"><i class="fas fa-sync"></i></div>
+    <div class="icon"><i class="fas fa-play-circle"></i></div>
+    <div class="icon"><i class="fas fa-pizza-slice"></i></div>
+    <div class="icon"><i class="fas fa-filter"></i></div>
+    <div class="icon"><i class="fas fa-trophy"></i></div>
+    <div class="icon"><i class="fas fa-check-circle"></i></div>
+    <div class="icon"><i class="fas fa-exclamation-circle"></i></div>
+    <div class="icon"><i class="fas fa-folder-open"></i></div>
+  </div>
+</body>
+</html>
