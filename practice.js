@@ -80,7 +80,6 @@ function flattenArray(array) {
       } else {
           result.push(item);
       }
-      
   }
   return result;
 }
