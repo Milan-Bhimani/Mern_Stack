@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Grid</title>
+    <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+  
+body,html{
+    height: 100%;
+    width: 100%;
+}
+
+.parent{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.child{
+    height: 70%;
+    width: 70%;
+    background-color: beige;
+    border-radius: 10px;
+    display: flex;
+   padding: 1rem;
+}
+.button{
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 130px;
+    background-color: aquamarine;
+    color:black;
+}
+.button:hover{
+    transition-duration: 5s;
+    transition-delay: 0.5s;
+    background-color:rgb(16, 181, 126);
+    transform:translateX(500px) translateY(150px) skew(180deg) rotate(360deg);
+
+}
+
+/* .child{
+    height: 70%;
+    width: 70%;
+    background-color: bisque;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+/* @media (max-width: 1000px) and (min-width: 500px) {
+    .parent {
+        background-color: beige;
+    }
+}
+@media(max-width: 500px){
+    .parent {
+        background-color: palevioletred;
+    }
+} */
+
+    </style>\
+  </head>
+  <body>
+    <div class="parent">
+    <div class="child">
+        <button class="button">Hover</button>
+    </div>
+    </div>
+
+  </body>

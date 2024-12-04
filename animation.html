@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+   <style>
+    /* *{
+
+} */
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.parent{
+    height: 100%;
+    width: 100%;
+    background-color: pink;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+.child{
+    border-radius: 15px;
+    height: 700px;
+    width: 1300px;
+    background-color: gray;
+    padding: 1rem;
+
+}
+.box{
+    height: 150px;
+    width: 150px;
+    background-color: pink;
+    border: 2px solid black;
+    animation-name: movingBox;
+    animation-duration: 3s;
+    animation-delay: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+@keyframes movingBox{
+    0%{
+        transform: translateX(00px) translateY(000px);
+    }
+    25%{
+        background-color: mediumslateblue;
+        transform: translateX(500px) translateY(0px);
+    }
+    50%{
+        background-color: midnightblue;
+        transform: translateX(500px) translateY(500px);
+    }
+    75%{
+        background-color: mediumspringgreen;
+        transform: translateX(0px) translateY(500px);
+    }
+    100%{
+        background-color: black;
+        transform: translateX(0px) translateY(0px);
+    }
+    /* from{
+        transform: translateX(0px) translateY(0px);
+    }
+    to{
+        background-color: mediumaquamarine;
+        transform: translateX(200px) translateY(400px);
+    } */
+}
+   </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            <div class="box">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
