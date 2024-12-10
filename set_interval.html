@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .interval {
+      height: 100vh;
+      width: 100vw;
+      border: solid 10px black;
+      font-size: 500px;
+      font-weight: 400;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <body>
+    <div class="interval"></div>
+  </body>
+  <script>
+    let i = 1;
+    setTimeout(() => {
+      const interval = setInterval(() => {
+        document.querySelector("div").innerHTML = i;
+        if (i === 10) {
+          clearInterval(interval);
+          document.querySelector("div").innerHTML= "BOOM"
+        }
+        i++;
+      }, 1000);
+    }, 200);
+  </script>
+</html>

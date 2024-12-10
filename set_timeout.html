@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="btn" id="change">Change</button>
+    <button class="btn" id="stop">Stop</button>
+    <div>sadap</div>
+  </body>
+  <script>
+    const changeButton = document.getElementById("change");
+    const stopButton = document.getElementById("stop");
+    let stopAction = false;
+    changeButton.addEventListener("click", () => {
+      setTimeout(() => {
+        if (!stopAction) {
+          document.querySelector("div").innerHTML =
+            "Milan Bhimani, this is new text";
+        }
+      }, 5000);
+    });
+
+    stopButton.addEventListener("click", () => {
+      stopAction = true;
+    });
+  </script>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> WebPage</title> 
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lavender;
+    color: #333;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 20px 0;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+.header:hover{
+    transition-duration: 3s;
+    transition-delay: 0.5s;
+    transform:skew(30deg);
+}
+
+.header a {
+    text-decoration: none;
+    color: #000;
+  }
+
+.container {
+    max-width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    background-color: snow;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* animation-name: movingBox;
+    animation-duration: 4s;
+    animation-delay: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes movingBox{
+    from{
+      transform: translateX(0px) translateY(0px);
+  }
+  to{
+      transform: translateX(1400px) translateY(0px);
+  } */
+  }
+
+.text-section {
+    flex: 1;
+  }
+
+.text-section h1 {
+    font-size: 36px;
+    margin: 0 0 10px;
+  }
+
+.text-section p {
+    font-size: 18px;
+    margin: 0 0 20px;
+  }
+
+.social-icons {
+    display: inline-block;
+    gap: 10px;
+    
+  }
+
+.social-icons a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    margin: right;
+   
+  }
+.social-icons img{
+    aspect-ratio: 4/3;
+    height: 28px;
+    width: 28px;
+}
+
+.image-section {
+    flex: 1;
+  }
+
+.image-section img {
+    max-width: 400px;
+    height: 100%;
+    border-radius: 10px;}
+
+    </style>
+   </head>
+<body>
+  <div class="header">
+    <a href="#">Bio</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <div class="container">
+    <div class="text-section">
+      <h1>Milan Bhimani</h1>
+      <p>I'm a dedicated culture critic and blogger located Baroda,Gujarat</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://static.vecteezy.com/system/resources/previews/014/414/683/non_2x/instagram-black-logo-on-transparent-background-free-vector.jpg" alt="Instagram"></a>
+        <a href="#"><img src="data:image/png;base64,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" alt="Facebook"></a>
+        <a href="#"><img src="data:image/png;base64,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" alt="Twitter"></a>
+        <a href="#"><img src="https://img.freepik.com/free-psd/social-media-logo-design_23-2151299455.jpg" alt="LinkedIn"></a>
+      </div>
+      <br><br><button>NEXT</button>
+      <button>PREVIOUS</button>
+    </div>
+    <div class="image-section">
+      <img src="https://i.pinimg.com/736x/77/01/7b/77017b2c8263f07fc1c17e5abbf94dac.jpg" alt="Milan Bhimani">
+    </div>
+  </div>
+
+</body>
+</html>
+
+

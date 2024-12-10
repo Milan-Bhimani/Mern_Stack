@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <style>
+
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        color: #fff;
+      }
+
+      .timer-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      button {
+        font-size: 1.2rem;
+        padding: 12px 25px;
+        margin: 5px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      button#start {
+        background: #4caf50;
+        color: #fff;
+      }
+
+      button#start:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      button#stop {
+        background: #f44336;
+        color: #fff;
+      }
+
+      button#stop:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      button#reset {
+        background: #2196f3;
+        color: #fff;
+      }
+
+      button#reset:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timer-box">0</div>
+    <div class="button-container">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+      <button id="reset">Reset</button>
+    </div>
+    <script>
+      let startButton = document.getElementById("start");
+      let stopButton = document.getElementById("stop");
+      let resetButton = document.getElementById("reset");
+      let i = 1;
+      let isRunning = false;
+      let interval;
+
+      startButton.addEventListener("click", () => {
+        if (!isRunning) {
+          isRunning = true;
+          interval = setInterval(() => {
+            document.querySelector(".timer-box").innerHTML = i;
+            i++;
+          }, 1000);
+        }
+      });
+
+      stopButton.addEventListener("click", () => {
+        clearInterval(interval);
+        isRunning = false;
+      });
+
+      resetButton.addEventListener("click", () => {
+        clearInterval(interval);
+        i = 1;
+        document.querySelector(".timer-box").innerHTML = "0";
+        isRunning = false;
+      });
+    </script>
+  </body>
+</html>

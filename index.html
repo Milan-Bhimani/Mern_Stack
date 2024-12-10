@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f0f0f0;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .welcome-message {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <form id="usernameForm">
+        <label for="username">Enter your username:</label><br><br>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="welcomeMessage" class="welcome-message"></div>
+
+    <script>
+        const form = document.getElementById('usernameForm');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); 
+            const username = document.getElementById('username').value;
+            welcomeMessage.textContent = `Welcome, ${username}!`;
+            form.reset(); 
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Cat Image</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      img {
+        max-width: 300px;
+        max-height: 300px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      img:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Click the Cat!</h1>
+    </header>
+    <img id="randomImage" alt="Random Cat" />
+
+    <script>
+      let data = [];
+
+      async function fetchCatImages() {
+        try {
+          const response = await fetch("api.json");
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          data = await response.json();
+
+          displayRandomImage();
+        } catch (error) {
+          console.error("Error fetching the JSON file:", error);
+          document.body.innerHTML =
+            "<p>Failed to load images. Please try again later.</p>";
+        }
+      }
+
+      function getRandomImage() {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        return data[randomIndex];
+      }
+
+      function displayRandomImage() {
+        const randomImage = getRandomImage();
+        const imgElement = document.getElementById("randomImage");
+        imgElement.src = randomImage.url;
+        imgElement.alt = `Cat Image ID: ${randomImage.id}`;
+      }
+
+      document.getElementById("randomImage").addEventListener("click", () => {
+        displayRandomImage();
+      });
+
+      fetchCatImages();
+    </script>
+  </body>
+</html>
