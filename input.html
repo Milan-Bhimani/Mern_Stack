@@ -1,119 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: rgb(222, 178, 245);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            display: flex;
-            width: 80%;
-            max-width: 1000px;
-            gap: 20px;
-        }
-        .left, .right {
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            width: 50%;
-        }
-        .left {
-            background-color: #e0f7fa;
-        }
-        .right {
-            background-color: #ffffff;
-        }
-        b {
-            color: #333;
-        }
-        input {
-            margin: 10px 0;
-            padding: 10px;
-            width: calc(100% - 22px);
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f0f0f0;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(222, 178, 245);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        display: flex;
+        width: 80%;
+        max-width: 1000px;
+        gap: 20px;
+      }
+      .left,
+      .right {
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 50%;
+      }
+      .left {
+        background-color: #e0f7fa;
+      }
+      .right {
+        background-color: #ffffff;
+      }
+      b {
+        color: #333;
+      }
+      input {
+        margin: 10px 0;
+        padding: 10px;
+        width: calc(100% - 22px);
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f0f0f0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-       <div class="left" id="left">No data submitted yet.</div>
-       <div class="right" id="right">
-            <b>Name : </b><input type="text" id="name"><br>
-            <b>Year : </b><input type="text" id="year"><br>
-            <b>Department : </b><input type="text" id="department"><br>
-            <button id="submit">Submit</button>
-       </div>
+      <div class="left" id="left">No data submitted yet.</div>
+      <div class="right" id="right">
+        <b>Name : </b><input type="text" id="name" /><br />
+        <b>Year : </b><input type="text" id="year" /><br />
+        <b>Department : </b><input type="text" id="department" /><br />
+        <button id="submit">Submit</button>
+      </div>
     </div>
     <script>
-        const nameInput = document.getElementById("name");
-        const yearInput = document.getElementById("year");
-        const departmentInput = document.getElementById("department");
-        const left = document.getElementById("left");
+      const nameInput = document.getElementById("name");
+      const yearInput = document.getElementById("year");
+      const departmentInput = document.getElementById("department");
+      const left = document.getElementById("left");
 
-        document.getElementById("submit").addEventListener("click", () => {
-            let table = left.querySelector("table");
+      document.getElementById("submit").addEventListener("click", () => {
+        let table = left.querySelector("table");
 
-            if (!table) {
-                table = document.createElement("table");
-                table.innerHTML = `
+        if (!table) {
+          table = document.createElement("table");
+          table.innerHTML = `
                     <tr>
                         <th>Name</th>
                         <th>Year</th>
                         <th>Department</th>
                     </tr>
                 `;
-                left.innerHTML = ""; 
-                left.appendChild(table);
-            }
+          left.innerHTML = "";
+          left.appendChild(table);
+        }
 
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
                 <td>${nameInput.value}</td>
                 <td>${yearInput.value}</td>
                 <td>${departmentInput.value}</td>
             `;
-            table.appendChild(newRow);
+        table.appendChild(newRow);
 
-            nameInput.value = "";
-            yearInput.value = "";
-            departmentInput.value = "";
-        });
+        nameInput.value = "";
+        yearInput.value = "";
+        departmentInput.value = "";
+      });
     </script>
-</body>
+  </body>
 </html>

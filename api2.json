@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cat Images</title>
-    <style>
-      .image-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-        padding: 20px;
-      }
-      .image-container img {
-        max-width: 200px;
-        max-height: 200px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        object-fit: cover;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Cat Images Gallery</h1>
-    </header>
-    <div class="image-container" id="imageContainer">
-      <!-- Images will load here dynamically -->
-    </div>
-
-    <script>
-      // Embedded JSON data
-      const jsonData =[
+[
   { "name": "Smartphone", "price": 699, "category": "electronics", "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA..." },
   { "name": "Laptop", "price": 1299, "category": "electronics", "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA..." },
   { "name": "Smartwatch", "price": 199, "category": "electronics", "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA..." },
@@ -53,19 +20,3 @@
   { "name": "Gaming Console", "price": 499, "category": "electronics", "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA..." },
   { "name": "Bookshelf", "price": 200, "category": "home items", "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA..." }
 ]
-
-      const imageContainer = document.getElementById("imageContainer");
-
-      jsonData.forEach((item) => {
-        if (item.id && item.url) {
-          const img = document.createElement("img");
-          img.src = item.url;
-          img.alt = `Cat Image ID: ${item.id}`;
-          imageContainer.appendChild(img);
-        } else {
-          console.warn("Skipping invalid data item:", item);
-        }
-      });
-    </script>
-  </body>
-</html>
