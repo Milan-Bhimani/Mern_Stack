@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    header {
+      background: #0073e6;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: #333;
+      color: white;
+    }
+    nav .search-bar input {
+      padding: 0.5rem;
+      width: 300px;
+    }
+    .city-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .city-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      width: 300px;
+      text-align: center;
+    }
+    .city-card img {
+      width: 64px;
+      height: 64px;
+    }
+    .button {
+      padding: 0.5rem 1rem;
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #005bb5;
+    }
+    .no-products {
+      text-align: center;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Weather API</h1>
+  </header>
+  <nav>
+    <div class="menu-container">
+      <button class="button">Home</button>
+      <button class="button">Today's Weather</button>
+      <button class="button">Next 10 Day's Weather</button>
+    </div>
+    <div class="search-bar" id="search">
+      <input type="text" id="searchInput" placeholder="Search for cities..." />
+    </div>
+  </nav>
+
+  <div class="city-list" id="city-list"></div>
+
+  <script>
+    let cities = [];
+    let filter = "";
+
+const fetchWeatherData = () => {
+  return new Promise((resolve, reject) => {
+    fetch("weather.json")
+      .then(response => {
+        if (!response.ok) {
+          reject("Failed to fetch weather data");
+        }
+        return response.json();
+      })
+      .then(data => {
+        resolve(data);
+        // show();
+      })
+      .catch(error => {
+        reject(error); 
+      });
+  });
+};
+
+const citylist = document.querySelector('#city-list');
+
+const searchInput = document.querySelector('#searchInput');
+searchInput.addEventListener('input', () => {
+  filter = searchInput.value.toLowerCase();
+  show();
+});
+
+const show = () => {
+  citylist.innerHTML = "";
+  const filteredCities = filter
+    ? cities.filter(city => city.location.name.toLowerCase().includes(filter))
+    : cities;
+
+  if (filteredCities.length === 0) {
+    citylist.innerHTML = "<p class='no-products'>No cities found</p>";
+  }
+
+  filteredCities.forEach(city => {
+    const cityCard = document.createElement('div');
+    cityCard.classList.add('city-card');
+    cityCard.innerHTML = `
+      <h2>${city.location.name}</h2>
+      <p>${city.location.region}, ${city.location.country}</p>
+      <img src="${city.current.condition.icon}" alt="${city.current.condition.text}" />
+      <p><strong>${city.current.condition.text}</strong></p>
+      <p>Temperature: ${city.current.temp_c}&deg;C (${city.current.temp_f}&deg;F)</p>
+      <p>Humidity: ${city.current.humidity}%</p>
+      <p>Wind: ${city.current.wind_kph} kph</p>
+    `;
+    citylist.appendChild(cityCard);
+  });
+};
+
+fetchWeatherData()
+  .then(data => {
+    cities = data;
+    show();
+  })
+  .catch(error => {
+    console.error("Error fetching data:", error);
+  });
+
+  </script>
+</body>
+</html>
