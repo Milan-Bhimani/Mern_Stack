@@ -1,0 +1,57 @@
+command to create a new node project from scratch:
+
+1. npm init
+2.give assentials to the project
+3.install express,axios and dotenv using command like npm install express
+4.your project structure will be should look like this:
+public/
+view/
+.env
+app.js
+5.run your project
+npm run script name
+//start script and test script is default case so you don't need to use run you can use npm start or npm test
+
+// to access the express server in js you have to use 
+const express = require('express'); // Import the Express library
+const axios = require('axios'); // Import axios to make HTTP requests
+require('dotenv').config(); // Load environment variables from .env file
+
+const app = express(); // Create an Express application
+
+const PORT = 3000; // Port for the server to listen on
+
+// Middleware to serve static files from the 'public' folder
+app.use(express.static('public'));
+
+// Home route to welcome users
+app.get('/', (req, res) => {
+  res.send('Welcome to the Weather App!');
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+//this is the demo to get something on web page using the express
+
+2 type of import export 
+
+1 comman import export
+1 is module import export
+
+how export anything 
+
+module.exports = fuction
+
+if multiple fuction you want to export you can use array
+it is not wrong but we send in the type of object 
+importing the file
+
+use require
+
+syntax:const var1 = require("./file.js")
+
+https://bytexl.google.com/search?q=abcdefghijklmnop
+
+protocol domain or hostname path queary
